@@ -72,3 +72,28 @@
    	=>
    	(printout t "Es divisible por 13" crlf)
 )
+
+
+(deffunction divisibility_by_eleven_aux (?x)
+	(bind ?result 0)
+	(bind ?count 0)
+	(while (> ?x 0)
+		(if (mod ?count 2)
+		then
+			(bind ?result (+ ?result (mod ?x 10)))
+		else
+			(bind ?result (- ?result (mod ?x 10)))
+		)
+		(bind ?count (+ ?count 1))
+      	(bind ?x (div ?x 10))
+    )
+    (return ?x)
+)
+
+(defrule divisibility_by_eleven
+   	(value ?x)
+  	(test (= (divisibility_by_eleven_aux ?x) 0))
+   	=>
+   	(printout t "Es divisible por 11" crlf)
+)
+
