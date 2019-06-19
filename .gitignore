@@ -1,7 +1,8 @@
-/Divisibility/nbproject/
+/Divisibility/nbproject/private/
+/Divisibility/nbproject/Makefile-*.mk
+/Divisibility/nbproject/Package-*.bash
 /Divisibility/build/
 /Divisibility/nbbuild/
 /Divisibility/dist/
 /Divisibility/nbdist/
 /Divisibility/.nb-gradle/
-a.txt
