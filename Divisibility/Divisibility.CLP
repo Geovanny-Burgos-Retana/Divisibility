@@ -55,6 +55,7 @@
 (defrule divisibility_by_seven
    	(value ?x)
     (or
+    	(test (= (divisibility_by_seven_aux ?x) -14))
     	(test (= (divisibility_by_seven_aux ?x) 7))
     	(test (= (divisibility_by_seven_aux ?x) -7))
     	(test (= (divisibility_by_seven_aux ?x)	0))
@@ -67,7 +68,7 @@
 	(bind ?result 0)
 	(bind ?count 0)
 	(while (> ?x 0)
-		(if (mod ?count 2)
+		(if (= 0 (mod ?count 2))
 		then
 			(bind ?result (+ ?result (mod ?x 10)))
 		else
@@ -87,7 +88,7 @@
 )
 
 (deffunction divisibility_by_thirteen_aux (?x)
-	(while (> ?x -78)
+	(while (> ?x -1)
 		(if (or 
 				(= ?x 0)
 				(= (abs ?x) 13)

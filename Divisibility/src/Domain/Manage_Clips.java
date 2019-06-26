@@ -16,6 +16,10 @@ public class Manage_Clips {
     private Environment clips = new Environment();
     private String file = "Divisibility.CLP";
 
+    public Manage_Clips() {
+        this.clips.load(file);
+    }    
+    
     /**
      * @return the clips
      */
@@ -46,15 +50,12 @@ public class Manage_Clips {
     }
     
     public String getAnswer(int number) {
+        System.out.println("(assert(value " + number + "))");
+        
         this.clips.eval("(assert(value " + number + "))");
+        
         this.clips.run();
-        
-        String eval = "(find-all-facts ((?v value)) TRUE)";
-        
-        PrimitiveValue value = this.clips.eval(eval);
-        
-        String result = value.getValue().toString();
-        
+
         this.clips.reset();
         
         return "";
